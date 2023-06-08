@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>BITTU FLIGHTS - A Prediction Site</title>
+    <style>
+        /* .popup{
+          width: 400px;
+          background: #fff;
+          border-radius: 6px;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.1);
+          text-align: center;
+          padding: 0 30px 30px;
+          color: #333;
+          visibility: hidden;
+          transition: transform 0.4s, top 0.4s;
+  
+        }
+
+        .open-popup{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .popup img{
+            width: 100px;
+            margin-top: -50px;
+            border-radius:50% ;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+        }
+        .popup h2{
+            font-size: 38px;
+            font-weight: 500;
+            margin: 30px 0 10px;
+
+        }
+        .popup button{
+            width: 100%;
+            margin-top: 50px ;
+            padding: 10px 0;
+            background: #6fd649 ;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        } */
+        
+      </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand font-weight-bold" href="index.html">BITTU FLIGHTS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-flex justify-content-center align-items-center "
+            id="navbarSupportedContent">
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0  ">
+                <li><a href="index.html" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="pricing.html" class="nav-link px-2">Pricing</a></li>
+                <li><a href="#" class="nav-link px-2">About</a></li>
+                <li><a href="#" class="nav-link px-2">Contact</a></li>
+            </ul>
+
+
+            <!-- <form class="form-inline my-2 my-lg-0 ">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 bg-primary " type="submit" >Search</button>
+          </form>
+        </div> -->
+    </nav>
+    <!-- end navbar -->
+    <div class="container my-4">
+        <h3 class="mb-3">Flight Pricing</h3>
+        <form action="\predict" method="post">
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7">
+                        <div class="card-body">
+                            <h5 class="card-title">Departure Time</h5>
+                            0-Afternoon,
+                            1-Early Morning,
+                            2-Evening,
+                            3-Late Night,
+                            4-Morning,
+                            <br>
+                            5-Night.
+                            <!-- Departure -->
+                            <br>
+                           <input type="number" name="departure_time" id="departure_time">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card" style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <h5 class="card-title">Arrival Time</h5>
+                            0-Afternoon,
+                            1-Early Morning,
+                            2-Evening,
+                            3-Late Night,
+                            4-Morning,
+                            <br>
+                            5-Night.
+                            <!-- Arrival -->
+                            <br>
+                            <input type="number" name="arrival_time" id="arrival_time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <!-- Hours -->
+                            <h5 class="card-title">Hours</h5>
+                        
+                            <input type="number" min="0" name="hours" id="hours">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <h5 class="card-title">Minutes</h5>
+                            <!-- Minutes -->
+                            <input type="number" min="0" name="mins" id="mins">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>     
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <!-- Source -->
+                            <h5 class="card-title">Source</h5>
+                            0-Bangalore,
+                            1-Chennai,
+                            2-Delhi,
+                            3-Hyderabad,
+                            4-Kolkata,
+                            5-Mumbai.
+                            <input type="number" name="source_city" id="source_city">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <h5 class="card-title">Destination</h5>
+                            <!-- Destination -->
+                            0-Bangalore,
+                            1-Chennai,
+                            2-Delhi,
+                            3-Hyderabad,
+                            4-Kolkata,
+                            5-Mumbai.
+                            <input type="number" name="destination_city" id="destination_city">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7";>
+                        <div class="card-body">
+                            <h5 class="card-title">Stopage</h5>
+                            0-One
+                            1-Two or more
+                            2-Zero
+                            <!-- Total Stops -->
+                           <br>
+                            <input type="number" name="stops" id="stops">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <h5 class="card-title">Which Airline you want to travel?</h5>
+                            <!-- Airline -->
+                            0-Air Asia,
+                            1-Air India, 
+                            2-GoFirst,
+                            3-IndiGo,
+                            4-SpiceJet,
+                            5-Vistara
+                            <input type="number" name="airline" id="airline" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7";>
+                        <div class="card-body">
+                            <h5 class="card-title">Class</h5>
+                            0-Business,
+                            1-Economy.
+                            <!-- Class -->
+                            <br>
+                            <input type="number" name="grade" id="grade">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card " style="background-color: #bfdaf7;">
+                        <div class="card-body">
+                            <h5 class="card-title">Days left</h5>
+                            From 1 to 49.
+                            <!-- Days Left -->
+                            <br>
+                            <input type="number" min="0" name="days_left" id="days_left">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    
+    
+        <br>
+        <!-- Submit -->
+        <!-- <div class="btn d-flex justify-content-center align-items-center "> -->
+        <div class="container d-flex justify-content-center">
+        <input type="submit" value="Submit" class="btn btn-secondary text-dark font-weight-bold " style="background-color: #bfdaf7"; onclick="openPopup()">
+        </div>
+        <br>
+        <div class="text d-flex justify-content-center">
+        <h3>{{ prediction_text }}</h3>
+        </div>
+            <!-- <div class="popup" id="popup">
+                <img src="img/tick.png.png" alt="">
+                <h2>Thank You</h2>
+                <h3> {{ prediction_text }} </h3>
+                <button type="button" onclick="closePopup()">OK</button>
+              </div>
+            </div> -->
+
+
+        </form>
+       
+       
+        
+
+        
+
+
+
+    <!-- footer -->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+     <p class="col-md-4 mb-0 text-body-secondary">© 2023 BITTU FLIGHTS, Inc</p>
+      
+      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      
+      <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+          </ul>
+        </footer>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+     <script>
+        let popup = document.getElementById("popup"); 
+
+        function openPopup(){
+popup.classList.add("open-popup");
+        }
+        function closePopup(){
+            popup.classList.remove("open-popup");
+        }
+     </script>   
+</body>
+
+</html>
